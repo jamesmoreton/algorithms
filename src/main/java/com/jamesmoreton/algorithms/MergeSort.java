@@ -18,40 +18,38 @@ public class MergeSort {
     }
 
     int nOverTwo = n / 2;
-    int[] a = this.run(Arrays.copyOfRange(array, 0, nOverTwo));
-    int[] b = this.run(Arrays.copyOfRange(array, nOverTwo, n));
+    int[] l = this.run(Arrays.copyOfRange(array, 0, nOverTwo));
+    int[] r = this.run(Arrays.copyOfRange(array, nOverTwo, n));
 
-    return merge(a, b);
+    return merge(array, l, r, n);
   }
 
-  private int[] merge(int[] a, int[] b) {
-    int n = a.length + b.length;
-    int[] c = new int[n];
+  private int[] merge(int[] array, int[] l, int[] r, int n) {
     int i = 0;
     int j = 0;
 
     for (int k = 0; k < n; k++) {
-      if (i == a.length) {
-        c[k] = b[j];
+      if (i == l.length) {
+        array[k] = r[j];
         j++;
         continue;
       }
 
-      if (j == b.length) {
-        c[k] = a[i];
+      if (j == r.length) {
+        array[k] = l[i];
         i++;
         continue;
       }
 
-      if (a[i] < b[j]) {
-        c[k] = a[i];
+      if (l[i] < r[j]) {
+        array[k] = l[i];
         i++;
       } else {
-        c[k] = b[j];
+        array[k] = r[j];
         j++;
       }
     }
 
-    return c;
+    return array;
   }
 }
