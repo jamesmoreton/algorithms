@@ -10,7 +10,7 @@ public class AlgorithmsMainline {
   private static final BigInteger Y = new BigInteger("1234");
 
   // Merge Sort
-  private static final int[] UNSORTED = new int[] {5, 64, 14, 847, 23, 1};
+  private static final int[] UNSORTED = new int[]{5, 64, 14, 847, 23, 1};
 
   public static void main(String[] args) {
     BigInteger multiplied = new KaratsubaMultiplication().run(X, Y);
