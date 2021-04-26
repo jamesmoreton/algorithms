@@ -28,6 +28,6 @@ class MergeSortTest {
   @ParameterizedTest
   @MethodSource("data")
   void canSort(int[] unsorted, int[] sorted) {
-    assertThat(new MergeSort().run(unsorted)).containsExactly(sorted);
+    assertThat(MergeSort.run(unsorted)).containsExactly(sorted);
   }
 }

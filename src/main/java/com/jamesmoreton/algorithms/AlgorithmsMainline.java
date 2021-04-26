@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 public class AlgorithmsMainline {
 
+  private static final String DIVIDER = "------------------------";
+
   // Karatsuba Multiplication
   private static final BigInteger X = new BigInteger("5678");
   private static final BigInteger Y = new BigInteger("1234");
@@ -13,10 +15,17 @@ public class AlgorithmsMainline {
   private static final int[] UNSORTED = new int[]{5, 64, 14, 847, 23, 1};
 
   public static void main(String[] args) {
-    BigInteger multiplied = new KaratsubaMultiplication().run(X, Y);
-    System.out.printf("Karatsuba Multiplication:\n%s * %s = %s", X, Y, multiplied);
+    System.out.println("Algorithms");
+    System.out.println(DIVIDER);
 
-    int[] sorted = new MergeSort().run(UNSORTED);
-    System.out.printf("\n\nMergeSort:\nUnsorted: %s\nSorted: %s", Arrays.toString(UNSORTED), Arrays.toString(sorted));
+    System.out.printf("Karatsuba Multiplication:%n%s * %s = %s%n", X, Y, KaratsubaMultiplication.run(X, Y));
+    System.out.println(DIVIDER);
+
+    System.out.printf("MergeSort:%nUnsorted: %s%nSorted: %s%n", Arrays.toString(UNSORTED), Arrays.toString(MergeSort.run(UNSORTED)));
+    System.out.println(DIVIDER);
+
+    System.out.printf("Fibonacci, n = 10 (recursive): %s%n", Fibonacci.fib(10));
+    System.out.printf("Fibonacci, n = 10 (iterative): %s%n", Fibonacci.fibIter(10));
+    System.out.println(DIVIDER);
   }
 }

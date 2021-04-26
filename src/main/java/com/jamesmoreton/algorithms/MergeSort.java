@@ -2,14 +2,17 @@ package com.jamesmoreton.algorithms;
 
 import java.util.Arrays;
 
-/**
- * Input: array of n distinct integers.
- *
- * <p>Output: array with the same integers, sorted from smallest to largest.</p>
- */
-public class MergeSort {
+class MergeSort {
 
-  int[] run(int[] array) {
+  /**
+   * Sorts an array of n distinct integers.
+   *
+   * <p>Time complexity: O(nlog(n))</p>
+   *
+   * @param array unsorted array of n distinct integers
+   * @return sorted array
+   */
+  static int[] run(int[] array) {
     int n = array.length;
 
     if (n <= 1) {
@@ -18,13 +21,13 @@ public class MergeSort {
     }
 
     int nOverTwo = n / 2;
-    int[] l = this.run(Arrays.copyOfRange(array, 0, nOverTwo));
-    int[] r = this.run(Arrays.copyOfRange(array, nOverTwo, n));
+    int[] l = run(Arrays.copyOfRange(array, 0, nOverTwo));
+    int[] r = run(Arrays.copyOfRange(array, nOverTwo, n));
 
     return merge(array, l, r, n);
   }
 
-  private int[] merge(int[] array, int[] l, int[] r, int n) {
+  private static int[] merge(int[] array, int[] l, int[] r, int n) {
     int i = 0;
     int j = 0;
 

@@ -24,6 +24,6 @@ class KaratsubaMultiplicationTest {
   @ParameterizedTest
   @MethodSource("data")
   void canMultiply(BigInteger x, BigInteger y, BigInteger expected) {
-    assertThat(new KaratsubaMultiplication().run(x, y)).isEqualTo(expected);
+    assertThat(KaratsubaMultiplication.run(x, y)).isEqualTo(expected);
   }
 }

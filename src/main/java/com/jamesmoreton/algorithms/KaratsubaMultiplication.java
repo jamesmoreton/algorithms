@@ -4,14 +4,18 @@ import java.math.BigInteger;
 
 import static java.math.BigInteger.TEN;
 
-/**
- * Input: two n-digit positive numbers x and y.
- *
- * <p>Output: the product x·y.</p>
- */
-public class KaratsubaMultiplication {
+class KaratsubaMultiplication {
 
-  BigInteger run(BigInteger x, BigInteger y) {
+  /**
+   * Multiplies two integers.
+   *
+   * <p>Time complexity: O(n^(log2(3)))</p>
+   *
+   * @param x integer to multiply
+   * @param y integer to multiply
+   * @return the product x•y
+   */
+  static BigInteger run(BigInteger x, BigInteger y) {
     int n = Math.max(String.valueOf(x).length(), String.valueOf(y).length());
 
     if (n == 1) {
@@ -29,12 +33,12 @@ public class KaratsubaMultiplication {
     BigInteger d = y.mod(TEN.pow(nOverTwo));                  // Second half of y
     BigInteger c = (y.subtract(d)).divide(TEN.pow(nOverTwo)); // First half of y
 
-    BigInteger ac = this.run(a, c);
-    BigInteger bd = this.run(b, d);
+    BigInteger ac = run(a, c);
+    BigInteger bd = run(b, d);
 
     BigInteger p = a.add(b);
     BigInteger q = c.add(d);
-    BigInteger pq = this.run(p, q);
+    BigInteger pq = run(p, q);
 
     BigInteger adbc = pq.subtract(ac).subtract(bd);
 
